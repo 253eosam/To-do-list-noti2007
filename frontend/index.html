@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do list</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="wrap">
         <div id="container">
             <div class="to-do-list_wrap">
                 <ul class="to-do-list">
-                    <li><input type="checkbox" name="todo-chk" id=""><span>첫번째로 할일</span><button type="menu">옵션</button></li>
+                    <li><label for="todo-chk1"><input type="checkbox" id="todo-chk1"><span>을까요?세상에서 가장 긴 문 중입니다. </span></label><button type="menu">옵션</button></li>
                 </ul>
-                <div class="register_box"><input type="text" name="register-todo" id="register-todo"><button type="button">등록</button></div>
+                <div class="register_box"><input placeholder="Enter what you want to do." type="text" name="register-todo" id="register-todo"><button type="button">등록</button></div>
             </div>
         </div>
         <footer role="contentinfo">
@@ -23,10 +24,11 @@
     </div>
     <div class="btm_fix_menu">
         <ul>
-            <li>닉네임 변경</li>
-            <li>완료 작업 숨기기</li>
-            <li>필터</li>
-            <li><a href="#" title="아래로 내려오기">아래로 내려오기</a></li>
+            <!-- 아래 내용을 이미지로 대체할 예정 -->
+            <li><button class="btm_menu_btn">닉네임 변경</button></li>
+            <li><button class="btm_menu_btn">완료 작업 숨기기</button></li>
+            <li><button class="btm_menu_btn">필터</button></li>
+            <li><a class="btm_menu_btn no_anchor_style" href="#footer" title="아래로 내려오기">아래로 내려오기</a></li>
         </ul>
     </div>
 </body>

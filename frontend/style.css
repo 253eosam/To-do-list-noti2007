@@ -1,0 +1,119 @@
+html,
+body {
+	height: 100%;
+	margin: 0;
+}
+#wrap {
+	height: 100%;
+	background-color: #e7e7e7;
+	overflow: hidden;
+}
+#container {
+	height: 100%;
+}
+.to-do-list_wrap {
+	height: calc(100% - 50px);
+	background: #5c834a;
+	box-sizing: border-box;
+	padding: 20px 0;
+}
+.to-do-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	overflow: auto;
+	height: calc(100% - 50px);
+}
+.to-do-list > li {
+	margin: 0 15px 10px 15px;
+	background: #d32f4c;
+	border: 3px solid rgba(241, 85, 151, 0.5);
+	box-sizing: border-box;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 50px;
+	height: 30px;
+    font-size: 20px;
+	position: relative;
+}
+.to-do-list > li > label {
+	padding-left: 15px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+    user-select: none;
+}
+
+
+.register_box {
+	position: absolute;
+	left: 0;
+	bottom: 50px;
+	height: 50px;
+	width: 100%;
+	background: #fff;
+}
+.register_box > input[type='text'] {
+	float: left;
+	height: 100%;
+	width: 90%;
+	box-sizing: border-box;
+	font-size: 20px;
+	padding: 0 20px;
+	border: 0;
+}
+.register_box > input[type='text']::placeholder {
+	color: #ddd;
+}
+.register_box > input[type='text']:focus {
+	outline: none;
+}
+.register_box > button {
+	float: right;
+	height: 100%;
+	width: 10%;
+	box-sizing: border-box;
+	border: 5px solid #fff;
+	border-radius: 10px;
+	font-size: 15px;
+	background: #5c834a;
+	color: #ddd;
+}
+footer {
+	position: fixed;
+	visibility: hidden;
+	bottom: 0;
+}
+.btm_fix_menu {
+	height: 50px;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #fff;
+	box-shadow: 0 0 11px rgba(195, 195, 195, 0.5);
+	z-index: 100;
+}
+.btm_fix_menu > ul {
+	display: flex;
+	height: 100%;
+	flex-flow: row;
+	list-style: none;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+.btm_fix_menu > ul > li {
+	flex: 1;
+	margin: auto 0;
+}
+.btm_menu_btn {
+    border: 0;
+    background: #fff;
+    font-size: 15px;
+	padding: 0 8px;
+}
+.no_anchor_style {
+	text-decoration: none;
+}
