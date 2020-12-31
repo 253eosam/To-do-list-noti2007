@@ -1,7 +1,7 @@
 package com.kany.todoapp.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -9,6 +9,8 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@ToString
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User {
 
     @Id
@@ -18,6 +20,12 @@ public class User {
     @Column(nullable = false)
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Post> posts;
+
+    @Builder
+    public User(String name) {
+        this.name = name;
+    }
 }
