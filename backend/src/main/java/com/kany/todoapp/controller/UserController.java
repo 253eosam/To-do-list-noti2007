@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
     private final UserService userService;
 
-    @GetMapping(value = "/{name}")
+    @GetMapping("/{name}")
     public ResponseEntity<User> find(@PathVariable String name) {
         LOGGER.debug("call find user ({})", name);
 
