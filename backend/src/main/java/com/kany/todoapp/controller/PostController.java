@@ -34,6 +34,22 @@ public class PostController {
         return new ResponseEntity<>(post, HttpStatus.OK);
     }
 
+    @GetMapping("/users/{name}")
+    public ResponseEntity<List<Post>> findByUserName(@PathVariable String name) {
+
+        List<Post> posts = postService.findByUserName(name);
+
+        return new ResponseEntity<>(posts, HttpStatus.OK);
+    }
+
+    @GetMapping("/condition/{name}")
+    public ResponseEntity<List<Post>> findByCondition(@PathVariable String name, @RequestParam("completed") boolean completed, @RequestParam("keyWord") String keyWord) {
+
+        List<Post> posts = postService.findByCondition(name, completed, keyWord);
+
+        return new ResponseEntity<>(posts, HttpStatus.OK);
+    }
+
     @PostMapping(value = "/{name}", consumes = "application/json")
     public ResponseEntity<Void> save(@RequestBody Post post, @PathVariable String name) {
 
