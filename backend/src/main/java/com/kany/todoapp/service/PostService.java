@@ -55,4 +55,10 @@ public class PostService {
         }
         return posts;
     }
+
+    public void toggleCompleted(Long id) {
+        Post post = postRepository.findById(id).orElseGet(null);
+        post.setCompleted(!post.isCompleted());
+        postRepository.save(post);
+    }
 }

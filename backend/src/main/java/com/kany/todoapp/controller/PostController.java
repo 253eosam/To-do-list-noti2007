@@ -73,4 +73,12 @@ public class PostController {
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<Void> toggleCompleted(@PathVariable Long id) {
+
+        postService.toggleCompleted(id);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
