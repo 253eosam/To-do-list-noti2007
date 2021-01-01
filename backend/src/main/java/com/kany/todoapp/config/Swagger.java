@@ -27,7 +27,7 @@ public class Swagger {
     }
 
     private ApiInfo apiInfo(String title) {
-        return new ApiInfo(title, "To-do-list 사용법 API", "", "", new Contact("", "", "rainbow4233@gmail.com"), "", "",
+        return new ApiInfo(title, "To-do-list 사용법 API", "", "", new Contact("hojun & sungjun", "", "rainbow4233@gmail.com"), "", "",
                 new ArrayList<>());
     }
 }
