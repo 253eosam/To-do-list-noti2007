@@ -2,7 +2,13 @@
 # backend branch
 # spring boot 2.4.1
 
-# project build & run
+# db setting
+## mysql 설치
+## tododb db 생성
+## db id : root
+## db password : 1234
+
+# project build & run 방법
 ## backend branch pull
 ## run TodoappApplication.class
 
