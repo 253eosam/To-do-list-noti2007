@@ -18,7 +18,7 @@ public class UserService {
         return userRepository.findByName(name);
     }
 
-    public User change(User user, String name) {
+    public User change(String name) {
         User changeUser = userRepository.findByName(name);
 
         if (changeUser == null) {

@@ -32,8 +32,10 @@ public class PostService {
         return postRepository.findByUserId(userId);
     }
 
-    public void update(Post post) {
-        post.setUpdated_at(LocalDateTime.now());
+    public void update(Long id, Post post) {
+        Post newPost = postRepository.findById(id).orElseGet(null);
+        newPost.setUpdated_at(LocalDateTime.now());
+        newPost.setContent(post.getContent());
         postRepository.save(post);
     }
 
@@ -46,11 +48,11 @@ public class PostService {
         postRepository.deleteById(id);
     }
 
-    public List<Post> findByCondition(String name, boolean completed, String keyWord) {
+    public List<Post> findByCondition(String name, boolean inCompleted, String keyWord) {
         Long userId = userRepository.findByName(name).getId();
         List<Post> posts = postRepository.findByUserIdAndContentContaining(userId, keyWord);
 
-        if (completed) {
+        if (inCompleted) {
             return posts.stream().filter(post -> !post.isCompleted()).collect(Collectors.toList());
         }
         return posts;

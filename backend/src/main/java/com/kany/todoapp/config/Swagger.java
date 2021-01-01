@@ -1,0 +1,33 @@
+package com.kany.todoapp.config;
+
+import java.util.ArrayList;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+@Configuration
+@EnableSwagger2
+public class Swagger {
+
+    @Bean
+    public Docket api() {
+        String title = "To-to-list Application";
+
+        return new Docket(DocumentationType.SWAGGER_2).select()
+                .apis(RequestHandlerSelectors.basePackage("com.kany.todoapp")).paths(PathSelectors.any()).build()
+                .apiInfo(apiInfo(title));
+    }
+
+    private ApiInfo apiInfo(String title) {
+        return new ApiInfo(title, "To-do-list 사용법 API", "", "", new Contact("hojun & sungjun", "", "rainbow4233@gmail.com"), "", "",
+                new ArrayList<>());
+    }
+}
