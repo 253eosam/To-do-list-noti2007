@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do list</title>
     <link rel="stylesheet" href="style.css">
+    <link href="./common/fontawesome-free-5.15.1-web/css/all.css" rel="stylesheet"> <!--load all styles -->
 </head>
 <body>
     <div id="wrap">
         <div id="container">
             <div class="to-do-list_wrap">
                 <ul class="to-do-list">
-                    <li><label for="todo-chk1"><input type="checkbox" id="todo-chk1"><span>을까요?세상에서 가장 긴 문 중입니다. </span></label><button type="menu">옵션</button></li>
+                    <li><label for="todo-chk1"><input type="checkbox" id="todo-chk1"><span> 세상에서 가장 긴 글을 써봅니다. 세상에서 가장 긴 글을 써봅니다.세상에서 가장 긴 글을 써봅니다. </span></label></li>
                 </ul>
                 <div class="register_box"><input placeholder="Enter what you want to do." type="text" name="register-todo" id="register-todo"><button type="button">등록</button></div>
             </div>
@@ -25,10 +26,10 @@
     <div class="btm_fix_menu">
         <ul>
             <!-- 아래 내용을 이미지로 대체할 예정 -->
-            <li><button class="btm_menu_btn">닉네임 변경</button></li>
-            <li><button class="btm_menu_btn">완료 작업 숨기기</button></li>
-            <li><button class="btm_menu_btn">필터</button></li>
-            <li><a class="btm_menu_btn no_anchor_style" href="#footer" title="아래로 내려오기">아래로 내려오기</a></li>
+            <li><button class="btm_menu_btn"><i class="fas fa-id-badge"></i><span>닉네임변경</span></button></li>
+            <li><button class="btm_menu_btn"><i class="fas fa-check-circle"></i><span>완료표시</span></button></li>
+            <li><button class="btm_menu_btn"><i class="fas fa-filter"></i><span>필터</span></button></li>
+            <li><a class="btm_menu_btn no_anchor_style" href="#footer" title="아래로 내려오기"><i class="fas fa-arrow-up"></i><span>위로</span></a></li>
         </ul>
     </div>
 </body>
