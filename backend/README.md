@@ -1,10 +1,12 @@
 # to do list api
 # backend branch
-# spring boot 2.4.1
+# version
+## spring boot 2.4.1
+## mysql 5.7.30
 
 # db setting
 ## mysql 설치
-## tododb db 생성
+## 'tododb' db 생성
 ## db id : root
 ## db password : 1234
 
