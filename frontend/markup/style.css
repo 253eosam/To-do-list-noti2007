@@ -10,15 +10,24 @@ body {
 	height: 100%;
 	background-color: #e7e7e7;
 	overflow: hidden;
+	background: #5c834a;
 }
 #container {
 	height: 100%;
 }
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 40px;
+	font-size: 20px;
+	text-align: center;
+	box-shadow: 0 4px 3px #37532a;
+}
 .to-do-list_wrap {
-	height: calc(100% - 50px);
-	background: #5c834a;
-	box-sizing: border-box;
-	padding: 20px 0;
+	height: calc(100% - 100px);
+	margin-top: 50px;
 }
 .to-do-list {
 	list-style: none;
@@ -27,7 +36,7 @@ body {
 	overflow: auto;
 	height: calc(100% - 50px);
 }
-.to-do-list > li {
+.to-do-item {
 	background: #d32f4c;
 	border: 3px solid rgba(241, 85, 151, 0.5);
 	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
@@ -35,12 +44,8 @@ body {
 	height: 20px;
 	position: relative;
 	width: 96%;
-	padding: 0 2%;
-	margin-left: -1%;
-}
-.to-do-list > li > label {
-	width: 100%;
-	display: inline-block;
+	padding: 0 2% 0 0;
+	margin: 0 0 5px -1%;
 }
 .to-do-list > li  span {
 	display: inline-block;
@@ -48,14 +53,15 @@ body {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	width: 92%;
-	vertical-align: middle;
-
+	user-select: none;
 }
 .to-do-list > li input[type="checkbox"] {
 	display: inline-block;
 	box-sizing: border-box;
 	width: 8%;
-	padding-right: 1%;
+	padding: 0 1% 0 2%;
+	height: 100%;
+	vertical-align: top;
 }	
 
 .register_box {
@@ -135,4 +141,21 @@ footer {
 .no_anchor_style {
 	text-decoration: none;
 	color: #000;
+}
+
+.none {
+	display: block;
+	width: 0;
+	height: 0;
+	text-indent: -999em;
+}
+
+.to-do-item-active {
+	border-radius: 10px;
+	height: 150px;
+}
+.to-do-item-active .item-text {
+	height: 150px;
+	white-space: normal;
+	overflow: auto;
 }
