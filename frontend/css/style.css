@@ -47,7 +47,7 @@ header {
 	padding: 0 2% 0 0;
 	margin: 0 0 5px -1%;
 }
-.to-do-list > li  span {
+.to-do-list > li span {
 	display: inline-block;
 	white-space: nowrap;
 	overflow: hidden;
@@ -55,14 +55,14 @@ header {
 	width: 92%;
 	user-select: none;
 }
-.to-do-list > li input[type="checkbox"] {
+.to-do-list > li input[type='checkbox'] {
 	display: inline-block;
 	box-sizing: border-box;
 	width: 8%;
 	padding: 0 1% 0 2%;
 	height: 100%;
 	vertical-align: top;
-}	
+}
 
 .register_box {
 	position: absolute;
@@ -133,9 +133,9 @@ footer {
 }
 
 .btm_menu_btn {
-    border: 0;
-    background: #fff;
-	font-size: .86em;
+	border: 0;
+	background: #fff;
+	font-size: 0.86em;
 	width: 100%;
 }
 .no_anchor_style {
