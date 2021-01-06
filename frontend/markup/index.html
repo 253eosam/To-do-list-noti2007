@@ -25,28 +25,20 @@
 		<link rel="stylesheet" href="../css/common.css" />
 		<link href="../assets/fontawesome-free-5.15.1-web/css/all.css" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/index.css" />
+		<script src="../js/api/index.js"></script>
 		<script src="../js/index.js"></script>
 	</head>
 
 	<body>
 		<div id="wrap">
 			<header>
-				<h1><a href="#" style="color: #ffffff" class="no_anchor_style">To do list</a></h1>
+				<h1><a href="#" class="no_anchor_style">To do list</a></h1>
 			</header>
 			<div id="container">
 				<div class="to-do-list_wrap">
-					<ul id="to-do-list" class="to-do-list">
-						<!-- <li class="to-do-item">
-							<input type="checkbox" id="todo-chk1" /><span class="item-text"> 세상에서 가장 긴 글을 써봅니다. 세상에서 가장 긴 글을 써봅니다.세상에서 가장 긴 글을 써봅니다. </span>
-						</li> -->
-					</ul>
+					<ul id="to-do-list" class="to-do-list"></ul>
 					<div class="register_box">
-						<input onkeydown="onEnterCheck(event)" placeholder="Enter what you want to do." type="text" name="register-todo" id="register-todo" /><button
-							onclick="onClickAddTask(event)"
-							type="button"
-						>
-							등록
-						</button>
+						<input placeholder="Enter what you want to do." type="text" name="register-todo" id="register-todo" /><button onclick="onClickAddTask(event)" type="button">등록</button>
 					</div>
 				</div>
 			</div>
