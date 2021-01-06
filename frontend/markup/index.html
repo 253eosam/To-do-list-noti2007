@@ -35,12 +35,19 @@
 			</header>
 			<div id="container">
 				<div class="to-do-list_wrap">
-					<ul class="to-do-list">
+					<ul id="to-do-list" class="to-do-list">
 						<!-- <li class="to-do-item">
 							<input type="checkbox" id="todo-chk1" /><span class="item-text"> 세상에서 가장 긴 글을 써봅니다. 세상에서 가장 긴 글을 써봅니다.세상에서 가장 긴 글을 써봅니다. </span>
 						</li> -->
 					</ul>
-					<div class="register_box"><input placeholder="Enter what you want to do." type="text" name="register-todo" id="register-todo" /><button type="button">등록</button></div>
+					<div class="register_box">
+						<input onkeydown="onEnterCheck(event)" placeholder="Enter what you want to do." type="text" name="register-todo" id="register-todo" /><button
+							onclick="onClickAddTask(event)"
+							type="button"
+						>
+							등록
+						</button>
+					</div>
 				</div>
 			</div>
 			<footer role="contentinfo">
@@ -55,13 +62,13 @@
 					<button class="btm_menu_btn"><i class="fas fa-id-badge"></i><span>닉네임변경</span></button>
 				</li>
 				<li>
-					<button class="btm_menu_btn"><i class="fas fa-check-circle"></i><span>완료표시</span></button>
+					<button onclick="loadTaskByUserName(true)" class="btm_menu_btn"><i class="fas fa-check-circle"></i><span>완료표시</span></button>
 				</li>
 				<li>
 					<button class="btm_menu_btn"><i class="fas fa-filter"></i><span>필터</span></button>
 				</li>
 				<li>
-					<a class="btm_menu_btn no_anchor_style" href="#footer" title="아래로 내려오기"><i class="fas fa-arrow-up"></i><span>위로</span></a>
+					<a class="btm_menu_btn no_anchor_style" href="#" title="위로"><i class="fas fa-arrow-up"></i><span>위로</span></a>
 				</li>
 			</ul>
 		</div>
