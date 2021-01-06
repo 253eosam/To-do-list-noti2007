@@ -1,6 +1,7 @@
 const api = async (url, method = 'GET', data) => {
 	return await fetch(`http://localhost:8080${url}`, {
 		method,
+		mode: 'cors',
 		headers: {
 			'Content-Type': 'application/json',
 		},
