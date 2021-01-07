@@ -46,7 +46,10 @@ const elementInit = (el, isClear = false) => {
 const loadTaskByUserName = async (flag = false) => {
 	if (flag) pageData.showCompletedTask = !pageData.showCompletedTask;
 	const toDoListEl = elementInit(document.getElementById('to-do-list'), true);
-	const tasks = await fetchTask(User.getInstance().name);
+	const tasks = await fetchFilterTask(User.getInstance().name, {
+		inCompleted: !pageData.showCompletedTask,
+		keyWord: pageData.filtering,
+	});
 	tasks.forEach(task => {
 		if (!pageData.showCompletedTask && task.completed) return;
 		const liEl = document.createElement('li');
@@ -57,6 +60,7 @@ const loadTaskByUserName = async (flag = false) => {
 		} </span><button onclick="onClickTaskDel(event)" class="none del_btn">삭제</button>`;
 		toDoListEl.appendChild(liEl);
 	});
+	registerFocus();
 };
 const onClickChangeNick = async () => {
 	const newName = prompt('변경할 닉네임 입력하세요.', User.getInstance().name);
@@ -67,6 +71,10 @@ const onClickChangeNick = async () => {
 const onClickFilter = async () => {
 	const newFiltering = prompt('필터 조건 입력하세요.', pageData.filtering);
 	pageData.filtering = newFiltering;
+	loadTaskByUserName();
+};
+const registerFocus = () => {
+	document.getElementById('register-todo').focus();
 };
 const onClickTaskDel = async event => await delTask(event.target.offsetParent.dataset.id);
 (async function init() {

@@ -14,3 +14,4 @@ const updateTaskStatus = id => api(`/posts/${id}`, 'PATCH');
 const postTask = (name, data) => api(`/posts/${name}`, 'POST', data);
 const delTask = id => api(`/posts/${id}`, 'DELETE');
 const updateTask = (id, data) => api(`/posts/${id}`, 'PUT', data);
+const fetchFilterTask = (name, data) => api(`/posts/condition/${name}`, 'POST', data);
