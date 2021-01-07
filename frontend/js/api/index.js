@@ -8,7 +8,7 @@ const api = (url, method = 'GET', data) => {
 	}).then(response => response.status === 200 && response.json());
 };
 
-const fetchUser = name => api(`/users/${name}`);
+const fetchUser = name => api(`/users/${name}`, 'POST');
 const fetchTask = name => api(`/posts/users/${name}`);
 const updateTaskStatus = id => api(`/posts/${id}`, 'PATCH');
 const postTask = (name, data) => api(`/posts/${name}`, 'POST', data);

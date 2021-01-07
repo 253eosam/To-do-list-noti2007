@@ -10,6 +10,7 @@
 	height: calc(100% - 50px);
 }
 .to-do-item {
+	position: relative;
 	background: #ffffff;
 	border: 3px solid rgba(88, 85, 241, 0.25);
 	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
@@ -25,10 +26,11 @@
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	width: calc(100% - 22px);
+	width: calc(100% - 34px);
 	user-select: none;
 	line-height: 1.5em;
 	font-size: 0.9em;
+	padding: 0 2px;
 }
 .to-do-list > li input[type='checkbox'] {
 	display: inline-block;
@@ -73,7 +75,6 @@
 	background: #5f56f0;
 	color: #ddd;
 }
-
 .to-do-item-active {
 	border-radius: 10px;
 	height: 85px;
@@ -82,4 +83,19 @@
 	height: 100%;
 	white-space: normal;
 	overflow: auto;
+}
+.del_btn {
+	position: absolute;
+	display: inline-block;
+	top: 1px;
+	right: 5px;
+	width: 13px;
+	height: 17px;
+	background: #fff;
+	border: 0;
+	font-size: 0;
+}
+.del_btn::before {
+	font-size: 15px;
+	content: '✖️';
 }

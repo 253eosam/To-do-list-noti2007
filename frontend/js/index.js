@@ -28,7 +28,7 @@ const onClickTaskDetail = event => {
 	const isActive = event.target.offsetParent.className.includes('active');
 	event.target.offsetParent.className = isActive ? 'to-do-item' : 'to-do-item to-do-item-active';
 };
-const onClickCheckBox = async event => await updateTaskStatus(event.target.dataset.id);
+const onClickCheckBox = async event => await updateTaskStatus(event.target.offsetParent.dataset.id);
 const onEnterCheck = event => event.keyCode === 13 && onClickAddTask();
 const onClickAddTask = async () => {
 	const registerInputEl = document.getElementById('register-todo');
@@ -51,9 +51,10 @@ const loadTaskByUserName = async (flag = false) => {
 		if (!pageData.showCompletedTask && task.completed) return;
 		const liEl = document.createElement('li');
 		liEl.className = 'to-do-item';
-		liEl.innerHTML = `<input onclick="onClickCheckBox(event)" data-id=${task.id} type="checkbox" ${
-			task.completed && 'checked'
-		} id="todo-chk1" /><span class="item-text" onclick="onClickTaskDetail(event)"> ${task.content} </span>`;
+		liEl.dataset.id = task.id;
+		liEl.innerHTML = `<input onclick="onClickCheckBox(event)" type="checkbox" ${task.completed && 'checked'} id="todo-chk1" /><span class="item-text" onclick="onClickTaskDetail(event)"> ${
+			task.content
+		} </span><button onclick="onClickTaskDel(event)" class="none del_btn">삭제</button>`;
 		toDoListEl.appendChild(liEl);
 	});
 };
@@ -67,9 +68,10 @@ const onClickFilter = async () => {
 	const newFiltering = prompt('필터 조건 입력하세요.', pageData.filtering);
 	pageData.filtering = newFiltering;
 };
+const onClickTaskDel = async event => await delTask(event.target.offsetParent.dataset.id);
 (async function init() {
 	console.log('📣 success login..!!');
-	if (getLocalStoage('id') && getLocalStoage('name')) User.instance = JSON.parse(getLocalStoage('user'));
+	if (getLocalStoage('user')) User.instance = JSON.parse(getLocalStoage('user'));
 	console.log(User.getInstance());
 	User.getInstance().id && (await loadTaskByUserName());
 })();
