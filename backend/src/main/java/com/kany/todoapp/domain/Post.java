@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Post {
 
     @Id
@@ -25,10 +26,10 @@ public class Post {
     private String content;
 
     @ApiModelProperty(hidden = true)
-    private LocalDateTime created_at = LocalDateTime.now();
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     @ApiModelProperty(hidden = true)
-    private LocalDateTime updated_at;
+    private LocalDateTime updatedAt;
 
     @Column(nullable = false)
     @ApiModelProperty(hidden = true)

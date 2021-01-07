@@ -32,9 +32,7 @@ public class PostController {
     @GetMapping("/{id}")
     public ResponseEntity<Post> findById(@PathVariable Long id) {
 
-        Post post = postService.findById(id);
-
-        return new ResponseEntity<>(post, HttpStatus.OK);
+        return new ResponseEntity<>(postService.findById(id), HttpStatus.OK);
     }
 
     @ApiOperation("사용자별 게시글 조회")
@@ -42,9 +40,7 @@ public class PostController {
     @GetMapping("/users/{name}")
     public ResponseEntity<List<Post>> findByUserName(@PathVariable String name) {
 
-        List<Post> posts = postService.findByUserName(name);
-
-        return new ResponseEntity<>(posts, HttpStatus.OK);
+        return new ResponseEntity<>(postService.findByUserName(name), HttpStatus.OK);
     }
 
     @ApiOperation("조건 조회")
@@ -52,9 +48,7 @@ public class PostController {
     @PostMapping("/condition/{name}")
     public ResponseEntity<List<Post>> findByCondition(@PathVariable String name, @RequestBody SearchConditionDTO searchConditionDTO) {
 
-        List<Post> posts = postService.findByCondition(name, searchConditionDTO);
-
-        return new ResponseEntity<>(posts, HttpStatus.OK);
+        return new ResponseEntity<>(postService.findByCondition(name, searchConditionDTO), HttpStatus.OK);
     }
 
     @ApiOperation("게시글 등록")
