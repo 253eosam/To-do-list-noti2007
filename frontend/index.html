@@ -22,25 +22,29 @@
 		<meta name="msapplication-TileImage" content="../assets/favicon.ico/ms-icon-144x144.png" />
 		<meta name="theme-color" content="#ffffff" />
 		<title>To do list</title>
-		<link rel="stylesheet" href="../css/common.css" />
-		<link href="../assets/fontawesome-free-5.15.1-web/css/all.css" rel="stylesheet" />
-		<link rel="stylesheet" href="../css/index.css" />
-		<script src="../js/common/index.js"></script>
+		<link rel="stylesheet" href="./css/common.css" />
+		<link href="./assets/fontawesome-free-5.15.1-web/css/all.css" rel="stylesheet" />
+		<link rel="stylesheet" href="./css/index.css" />
+		<script src="./js/api/index.js"></script>
+		<script defer src="./js/index.js"></script>
 	</head>
 
 	<body>
 		<div id="wrap">
 			<header>
-				<h1><a href="#" style="color: #ffffff" class="no_anchor_style">To do list</a></h1>
+				<h1><a href="#" class="no_anchor_style">To do list</a></h1>
 			</header>
 			<div id="container">
 				<div class="to-do-list_wrap">
-					<ul class="to-do-list">
-						<li class="to-do-item">
-							<input type="checkbox" id="todo-chk1" /><span class="item-text"> 세상에서 가장 긴 글을 써봅니다. 세상에서 가장 긴 글을 써봅니다.세상에서 가장 긴 글을 써봅니다. </span>
-						</li>
-					</ul>
-					<div class="register_box"><input placeholder="Enter what you want to do." type="text" name="register-todo" id="register-todo" /><button type="button">등록</button></div>
+					<ul id="to-do-list" class="to-do-list"></ul>
+					<div class="register_box">
+						<input onkeydown="onEnterCheck(event)" maxlength="50" placeholder="Enter what you want to do." type="text" name="register-todo" id="register-todo" /><button
+							onclick="onClickAddTask(event)"
+							type="button"
+						>
+							등록
+						</button>
+					</div>
 				</div>
 			</div>
 			<footer role="contentinfo">
@@ -52,16 +56,16 @@
 			<ul>
 				<!-- 아래 내용을 이미지로 대체할 예정 -->
 				<li>
-					<button class="btm_menu_btn"><i class="fas fa-id-badge"></i><span>닉네임변경</span></button>
+					<button onclick="onClickChangeNick()" class="btm_menu_btn"><i class="fas fa-id-badge"></i><span>닉네임변경</span></button>
+				</li>
+				<li id="hidden-completed-task_menu">
+					<button onclick="onClickHiddenCompletedTask()" class="btm_menu_btn"><i id="hidden-completed-task_icon" class="fas fa-check-circle"></i><span>완료표시</span></button>
 				</li>
 				<li>
-					<button class="btm_menu_btn"><i class="fas fa-check-circle"></i><span>완료표시</span></button>
+					<button onclick="onClickFilter()" class="btm_menu_btn"><i class="fas fa-filter"></i><span>필터</span></button>
 				</li>
 				<li>
-					<button class="btm_menu_btn"><i class="fas fa-filter"></i><span>필터</span></button>
-				</li>
-				<li>
-					<a class="btm_menu_btn no_anchor_style" href="#footer" title="아래로 내려오기"><i class="fas fa-arrow-up"></i><span>위로</span></a>
+					<button onclick="onClickTopButton()" class="btm_menu_btn"><i class="fas fa-arrow-up"></i><span>위로</span></button>
 				</li>
 			</ul>
 		</div>

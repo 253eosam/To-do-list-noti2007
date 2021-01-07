@@ -1,9 +1,9 @@
 package com.kany.todoapp.controller;
 
 import com.kany.todoapp.domain.Post;
+import com.kany.todoapp.dto.SearchConditionDTO;
 import com.kany.todoapp.service.PostService;
 import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/posts")
@@ -47,15 +48,11 @@ public class PostController {
     }
 
     @ApiOperation("조건 조회")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "name", value = "사용자 닉네임"),
-            @ApiImplicitParam(name = "inCompleted", value = "완료 여부", defaultValue = "false", dataType = "boolean"),
-            @ApiImplicitParam(name = "keyWord", value = "검색어", required = true),
-    })
-    @GetMapping("/condition/{name}")
-    public ResponseEntity<List<Post>> findByCondition(@PathVariable String name, @RequestParam("inCompleted") boolean inCompleted, @RequestParam("keyWord") String keyWord) {
+    @ApiImplicitParam(name = "name", value = "사용자 닉네임")
+    @PostMapping("/condition/{name}")
+    public ResponseEntity<List<Post>> findByCondition(@PathVariable String name, @RequestBody SearchConditionDTO searchConditionDTO) {
 
-        List<Post> posts = postService.findByCondition(name, inCompleted, keyWord);
+        List<Post> posts = postService.findByCondition(name, searchConditionDTO);
 
         return new ResponseEntity<>(posts, HttpStatus.OK);
     }
