@@ -165,4 +165,3 @@ yarn-error.log
 backend/.idea
 backend/todoapp.iml
 DB
-docker-compose.yml
