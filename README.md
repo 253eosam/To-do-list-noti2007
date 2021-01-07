@@ -27,7 +27,7 @@
 
 ## 🏞 디자인
 
-![메인 화면](./assets/feature-guide.gif)
+![메인 화면](./frontend/assets/feature-guide.gif)
 
 <br>
 
