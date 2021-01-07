@@ -6,3 +6,4 @@ INSERT INTO post (completed, content, created_at, updated_at, user_id) VALUES (f
 INSERT INTO post (completed, content, created_at, updated_at, user_id) VALUES (false, 'meet friends', '2020-12-31 12:00:00', null, 1);
 INSERT INTO post (completed, content, created_at, updated_at, user_id) VALUES (false, 'eat rice', '2020-12-30 10:00:10', null, 2);
 INSERT INTO post (completed, content, created_at, updated_at, user_id) VALUES (false, 'eat candy', '2020-12-30 14:59:59', null, 2);
+INSERT INTO post (completed, content, created_at, updated_at, user_id) VALUES (false, '밥먹고일기쓰기', '2021-01-01 09:00:00', null, 2);
