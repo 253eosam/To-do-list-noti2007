@@ -7,7 +7,26 @@
 
 <br>
 
-## ▶️ Run
+## Prerequisites
+
+Make sure you have installed all of the following prerequisites on your development machine:
+
+-   Git - [Download & Install Git](https://git-scm.com/downloads). OSX and Linux machines typically have this already installed.
+-   Spring boot - [Spring boot](https://start.spring.io/) create new project
+-   Docker - docker hub [install](https://hub.docker.com/?overlay=onboarding)
+
+<br>
+
+## ▶ Run
+
+1. Docker 설치 후 docker-compose 실행
+
+```
+    cd ./to-do-list-noti2007
+    docker-compose up
+```
+
+docker container가 정상적으로 실행되면 로컬에 DB환경 구축 완료 (기존 DB와 port 충돌 조심!!)
 
 아래 경로로 들어가 브라우저를 통해 열어서 실행
 
