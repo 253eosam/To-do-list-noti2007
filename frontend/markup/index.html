@@ -58,8 +58,8 @@
 				<li>
 					<button onclick="onClickChangeNick()" class="btm_menu_btn"><i class="fas fa-id-badge"></i><span>닉네임변경</span></button>
 				</li>
-				<li>
-					<button onclick="loadTaskByUserName(true)" class="btm_menu_btn"><i class="fas fa-check-circle"></i><span>완료표시</span></button>
+				<li id="hidden-completed-task_menu">
+					<button onclick="onClickHiddenCompletedTask()" class="btm_menu_btn"><i id="hidden-completed-task_icon" class="fas fa-check-circle"></i><span>완료표시</span></button>
 				</li>
 				<li>
 					<button onclick="onClickFilter()" class="btm_menu_btn"><i class="fas fa-filter"></i><span>필터</span></button>

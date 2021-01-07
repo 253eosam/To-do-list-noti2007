@@ -43,8 +43,7 @@ const elementInit = (el, isClear = false) => {
 	if (isClear) el.innerHTML = '';
 	return el;
 };
-const loadTaskByUserName = async (flag = false) => {
-	if (flag) pageData.showCompletedTask = !pageData.showCompletedTask;
+const loadTaskByUserName = async () => {
 	const toDoListEl = elementInit(document.getElementById('to-do-list'), true);
 	const tasks = await fetchFilterTask(User.getInstance().name, {
 		inCompleted: !pageData.showCompletedTask,
@@ -77,6 +76,11 @@ const registerFocus = () => {
 	document.getElementById('register-todo').focus();
 };
 const onClickTaskDel = async event => await delTask(event.target.offsetParent.dataset.id);
+const onClickHiddenCompletedTask = () => {
+	pageData.showCompletedTask = !pageData.showCompletedTask;
+	document.getElementById('hidden-completed-task_icon').className = pageData.showCompletedTask ? 'fas fa-check-circle' : 'far fa-check-circle';
+	loadTaskByUserName();
+};
 (async function init() {
 	console.log('📣 success login..!!');
 	if (getLocalStoage('user')) User.instance = JSON.parse(getLocalStoage('user'));
