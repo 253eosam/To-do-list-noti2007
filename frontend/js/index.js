@@ -75,11 +75,17 @@ const onClickFilter = async () => {
 const registerFocus = () => {
 	document.getElementById('register-todo').focus();
 };
-const onClickTaskDel = async event => await delTask(event.target.offsetParent.dataset.id);
+const onClickTaskDel = async event => {
+	await delTask(event.target.offsetParent.dataset.id);
+	loadTaskByUserName();
+};
 const onClickHiddenCompletedTask = () => {
 	pageData.showCompletedTask = !pageData.showCompletedTask;
 	document.getElementById('hidden-completed-task_icon').className = pageData.showCompletedTask ? 'fas fa-check-circle' : 'far fa-check-circle';
 	loadTaskByUserName();
+};
+const onClickTopButton = () => {
+	document.getElementById('to-do-list').scrollTop = 0;
 };
 (async function init() {
 	console.log('📣 success login..!!');
