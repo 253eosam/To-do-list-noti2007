@@ -19,7 +19,7 @@ Make sure you have installed all of the following prerequisites on your developm
 
 ## ▶ Run
 
-1. Docker 설치 후 docker-compose 실행
+Docker 설치 후 docker-compose 실행
 
 ```
     cd ./to-do-list-noti2007
