@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,6 +20,7 @@ public class Post {
     @ApiModelProperty(hidden = true)
     private Long id;
 
+    @Size(max = 50, message = "50자 이하로 입력하세요.")
     @Column(nullable = false)
     private String content;
 

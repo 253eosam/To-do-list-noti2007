@@ -1,6 +1,7 @@
 package com.kany.todoapp.service;
 
 import com.kany.todoapp.domain.Post;
+import com.kany.todoapp.dto.SearchConditionDTO;
 import com.kany.todoapp.repository.IPostRepository;
 import com.kany.todoapp.repository.IUserRepository;
 import lombok.RequiredArgsConstructor;
@@ -48,11 +49,11 @@ public class PostService {
         postRepository.deleteById(id);
     }
 
-    public List<Post> findByCondition(String name, boolean inCompleted, String keyWord) {
+    public List<Post> findByCondition(String name, SearchConditionDTO searchConditionDTO) {
         Long userId = userRepository.findByName(name).getId();
-        List<Post> posts = postRepository.findByUserIdAndContentContaining(userId, keyWord);
+        List<Post> posts = postRepository.findByUserIdAndContentContaining(userId, searchConditionDTO.getKeyWord());
 
-        if (inCompleted) {
+        if (searchConditionDTO.isInCompleted()) {
             return posts.stream().filter(post -> !post.isCompleted()).collect(Collectors.toList());
         }
         return posts;
