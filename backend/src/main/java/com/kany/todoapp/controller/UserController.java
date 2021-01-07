@@ -22,9 +22,7 @@ public class UserController {
     @GetMapping("/{name}")
     public ResponseEntity<User> find(@PathVariable String name) {
 
-        User user = userService.findByName(name);
-
-        return new ResponseEntity<>(user, HttpStatus.OK);
+        return new ResponseEntity<>(userService.findByName(name), HttpStatus.OK);
     }
 
     @ApiOperation("사용자 변경")
@@ -32,8 +30,6 @@ public class UserController {
     @PostMapping("/{name}")
     public ResponseEntity<User> change(@PathVariable String name) {
 
-        User changeUser = userService.change(name);
-
-        return new ResponseEntity<>(changeUser, HttpStatus.OK);
+        return new ResponseEntity<>(userService.change(name), HttpStatus.OK);
     }
 }
