@@ -2,6 +2,7 @@
 
 const pageData = {
 	showCompletedTask: true,
+	filtering: '',
 };
 
 const getLocalStoage = key => localStorage.getItem(key);
@@ -27,48 +28,48 @@ const onClickTaskDetail = event => {
 	const isActive = event.target.offsetParent.className.includes('active');
 	event.target.offsetParent.className = isActive ? 'to-do-item' : 'to-do-item to-do-item-active';
 };
-
-const onClickCheckBox = async event => {
-	const id = event.target.dataset.id;
-	await updateTaskStatus(id);
-};
-const onEnterCheck = event => {
-	// 엔터키의 코드는 13입니다.
-	if (event.keyCode == 13) {
-		onClickAddTask();
-	}
-};
+const onClickCheckBox = async event => await updateTaskStatus(event.target.dataset.id);
+const onEnterCheck = event => event.keyCode === 13 && onClickAddTask();
 const onClickAddTask = async () => {
 	const registerInputEl = document.getElementById('register-todo');
-	if (!registerInputEl.value) return;
+	if (!registerInputEl.value.trim()) return;
 	await postTask(User.getInstance().name, {
-		content: registerInputEl.value,
+		content: registerInputEl.value.trim(),
 	});
 	await loadTaskByUserName();
 	registerInputEl.value = '';
 };
+const elementInit = (el, isClear = false) => {
+	if (isClear) el.innerHTML = '';
+	return el;
+};
 const loadTaskByUserName = async (flag = false) => {
 	if (flag) pageData.showCompletedTask = !pageData.showCompletedTask;
-	const toDoListEl = document.querySelector('.to-do-list');
-	toDoListEl.innerHTML = '';
+	const toDoListEl = elementInit(document.getElementById('to-do-list'), true);
 	const tasks = await fetchTask(User.getInstance().name);
 	tasks.forEach(task => {
 		if (!pageData.showCompletedTask && task.completed) return;
-		let liEl = document.createElement('li');
+		const liEl = document.createElement('li');
 		liEl.className = 'to-do-item';
-		if (task.completed)
-			liEl.innerHTML = `<input onclick="onClickCheckBox(event)" data-id=${task.id} type="checkbox" checked id="todo-chk1" /><span class="item-text" onclick="onClickTaskDetail(event)"> ${task.content} </span>`;
-		else
-			liEl.innerHTML = `<input onclick="onClickCheckBox(event)" data-id=${task.id} type="checkbox" id="todo-chk1" /><span class="item-text" onclick="onClickTaskDetail(event)"> ${task.content} </span>`;
+		liEl.innerHTML = `<input onclick="onClickCheckBox(event)" data-id=${task.id} type="checkbox" ${
+			task.completed && 'checked'
+		} id="todo-chk1" /><span class="item-text" onclick="onClickTaskDetail(event)"> ${task.content} </span>`;
 		toDoListEl.appendChild(liEl);
 	});
 };
-
+const onClickChangeNick = async () => {
+	const newName = prompt('변경할 닉네임 입력하세요.', User.getInstance().name);
+	User.instance = await fetchUser(newName);
+	setLocalStoage('user', JSON.stringify(User.getInstance()));
+	await loadTaskByUserName();
+};
+const onClickFilter = async () => {
+	const newFiltering = prompt('필터 조건 입력하세요.', pageData.filtering);
+	pageData.filtering = newFiltering;
+};
 (async function init() {
-	console.log('📣 load success index.js file');
-	setLocalStoage('id', 4);
-	setLocalStoage('name', 'DDD05');
-	if (getLocalStoage('id') && getLocalStoage('name')) User.instance = { id: getLocalStoage('id'), name: getLocalStoage('user') };
-	User.getInstance().id && (await loadTaskByUserName());
+	console.log('📣 success login..!!');
+	if (getLocalStoage('id') && getLocalStoage('name')) User.instance = JSON.parse(getLocalStoage('user'));
 	console.log(User.getInstance());
+	User.getInstance().id && (await loadTaskByUserName());
 })();
