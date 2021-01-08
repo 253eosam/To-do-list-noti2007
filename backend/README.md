@@ -29,9 +29,6 @@
  - spring boot starter data-jpa 2.4.1
  - HikariCP 3.4.5
  - springfox swagger2 2.9.2
-<br>
- - intellij IDEA (Ultimate edition)
- - MySQLWorkbench
  
 
 ## 📌 swagger
