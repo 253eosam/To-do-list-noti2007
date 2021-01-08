@@ -11,12 +11,14 @@
     backend 디렉토리로 이동
     run TodoappApplication.class
 ```
+<br>
 
 ## 🔨 사용 기술
 
  - Java
  - Spring Data JPA
  - MySQL
+ <br>
 
 ## 💻 개발 환경 및 라이브러리(dependency)
 
@@ -29,8 +31,8 @@
  - spring boot starter data-jpa 2.4.1
  - HikariCP 3.4.5
  - springfox swagger2 2.9.2
+ <br>
  
-
 ## 📌 swagger
 
  - swagger URL : http://localhost:8080/swagger-ui.html
