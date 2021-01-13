@@ -19,7 +19,7 @@ Make sure you have installed all of the following prerequisites on your developm
 
 ## ▶ Run
 
-1. Docker 설치 후 docker-compose 실행
+Docker 설치 후 docker-compose 실행
 
 ```
     cd ./to-do-list-noti2007
@@ -31,7 +31,7 @@ docker container가 정상적으로 실행되면 로컬에 DB환경 구축 완�
 아래 경로로 들어가 브라우저를 통해 열어서 실행
 
 ```
-    ./to-do-list-noti2007/frontend/index.html
+    cd ./to-do-list-noti2007/frontend/index.html
 ```
 
 <br>

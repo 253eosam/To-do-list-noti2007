@@ -25,7 +25,7 @@ public class PostService {
     }
 
     public Post findById(Long id) {
-        return postRepository.findById(id).orElseGet(null);
+        return postRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
 
     public List<Post> findByUserName(String name) {
@@ -34,8 +34,8 @@ public class PostService {
     }
 
     public void update(Long id, Post post) {
-        Post newPost = postRepository.findById(id).orElseGet(null);
-        newPost.setUpdated_at(LocalDateTime.now());
+        Post newPost = postRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+        newPost.setUpdatedAt(LocalDateTime.now());
         newPost.setContent(post.getContent());
         postRepository.save(post);
     }
@@ -60,7 +60,7 @@ public class PostService {
     }
 
     public void toggleCompleted(Long id) {
-        Post post = postRepository.findById(id).orElseGet(null);
+        Post post = postRepository.findById(id).orElseThrow(IllegalArgumentException::new);
         post.setCompleted(!post.isCompleted());
         postRepository.save(post);
     }
