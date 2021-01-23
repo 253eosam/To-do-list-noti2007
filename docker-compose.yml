@@ -11,13 +11,14 @@ services: # 이 항목 밑에 실행하려는 컨테이너 들을 정의
         command: # 명령어 실행
             - --character-set-server=utf8mb4
             - --collation-server=utf8mb4_unicode_ci
-        # volumes:
-        #   - /Users/jmlim/datadir:/var/lib/mysql # -v 옵션 (다렉토리 마운트 설정)
+        volumes:
+            - ./init/:/docker-entrypoint-initdb.d/ # db 생성에 이어서 해당 .sql에 포함된 구문을 추가로 수행 (DDL)
+        #   - /home/ec2-user/:/var/lib/mysql # -v 옵션 (다렉토리 마운트 설정)
     # backend:
     #     container_name: to-do-noti2007-spring-backend
     #     build: ./backend
     #     ports:
-    #         - '8080: 8080'
+    #         - '8081:8081'
     #     depends_on: 
     #         - db
     frontend:
@@ -26,4 +27,4 @@ services: # 이 항목 밑에 실행하려는 컨테이너 들을 정의
         ports: 
             - '80:80'
         # depends_on: 
-            # - backend
+        #     - backend

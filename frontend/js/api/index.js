@@ -1,5 +1,5 @@
 const api = (url, method = 'GET', data) => {
-	return fetch(`http://localhost:8080${url}`, {
+	return fetch(`http://localhost:8081${url}`, {
 		method,
 		headers: {
 			'Content-Type': 'application/json',
