@@ -1,5 +1,5 @@
 const api = (url, method = 'GET', data) => {
-	return fetch(`http://localhost:8081${url}`, {
+	return fetch(`http://ec2-15-165-154-33.ap-northeast-2.compute.amazonaws.com:8081${url}`, {
 		method,
 		headers: {
 			'Content-Type': 'application/json',
