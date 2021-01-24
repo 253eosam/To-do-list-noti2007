@@ -61,6 +61,7 @@ docker container가 정상적으로 실행되면 로컬에 DB환경 구축 완�
     cd backend
     mvn clean package
     java -jar todoapp-0.0.1-SNAPSHOT.jar
+    # nohup java -jar todoapp-0.0.1-SNAPSHOT.jar > log.out
 ```
 
 ### Front는 아래 경로로 들어가 브라우저를 통해 열어서 실행
@@ -70,9 +71,20 @@ docker container가 정상적으로 실행되면 로컬에 DB환경 구축 완�
     # index.html 을 실행
 ```
 
-### swagger
+## Deploy
 
-[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+```bash
+ssh to-do-noti2007 # require key
+
+git clone https://github.com/DDD05/To-do-list-noti2007.git
+
+cd To-do-noti2007
+docker-compose up -d
+
+cd backend
+mvn clean package
+nohup java -jar ./target/todoapp-0.0.1-SNAPSHOT.jar > log.out
+```
 
 <br>
 
