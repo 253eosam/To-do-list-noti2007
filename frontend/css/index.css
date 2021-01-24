@@ -1,0 +1,101 @@
+.to-do-list_wrap {
+	height: calc(100% - 100px);
+	margin-top: 50px;
+}
+.to-do-list {
+	list-style: none;
+	padding: 0 5%;
+	margin: 0;
+	overflow: auto;
+	height: calc(100% - 50px);
+}
+.to-do-item {
+	position: relative;
+	background: #ffffff;
+	border: 3px solid rgba(88, 85, 241, 0.25);
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 50px;
+	height: 20px;
+	position: relative;
+	width: 96%;
+	padding: 0 2% 0 0;
+	margin: 0 0 5px -1%;
+}
+.to-do-list > li span {
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: calc(100% - 34px);
+	user-select: none;
+	line-height: 1.5em;
+	font-size: 0.9em;
+	padding: 0 2px;
+}
+.to-do-list > li input[type='checkbox'] {
+	display: inline-block;
+	box-sizing: border-box;
+	width: 12px;
+	margin: 0 5px;
+	height: 100%;
+	vertical-align: top;
+}
+
+.register_box {
+	position: absolute;
+	left: 0;
+	bottom: 50px;
+	height: 50px;
+	width: 100%;
+	background: #fff;
+}
+.register_box > input[type='text'] {
+	float: left;
+	height: 100%;
+	width: 85%;
+	box-sizing: border-box;
+	font-size: 20px;
+	padding: 0 4%;
+	border: 0;
+}
+.register_box > input[type='text']::placeholder {
+	color: #ddd;
+}
+.register_box > input[type='text']:focus {
+	outline: none;
+}
+.register_box > button {
+	float: right;
+	height: 100%;
+	width: 15%;
+	box-sizing: border-box;
+	border: 5px solid #fff;
+	border-radius: 10px;
+	font-size: 15px;
+	background: #5f56f0;
+	color: #ddd;
+}
+.to-do-item-active {
+	border-radius: 10px;
+	height: 85px;
+}
+.to-do-item-active .item-text {
+	height: 100%;
+	white-space: normal;
+	overflow: auto;
+}
+.del_btn {
+	position: absolute;
+	display: inline-block;
+	top: 1px;
+	right: 5px;
+	width: 13px;
+	height: 17px;
+	background: #fff;
+	border: 0;
+	font-size: 0;
+}
+.del_btn::before {
+	font-size: 15px;
+	content: '✖️';
+}

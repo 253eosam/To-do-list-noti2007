@@ -162,3 +162,6 @@ npm-debug.log
 yarn-error.log
 
 # End of https://www.toptal.com/developers/gitignore/api/vue,vuejs,intellij,java,java-web,vscode
+backend/.idea
+backend/todoapp.iml
+DB
