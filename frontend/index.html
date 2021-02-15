@@ -32,7 +32,7 @@
 	<body>
 		<div id="wrap">
 			<header>
-				<h1><a href="#" class="no_anchor_style">To do list</a></h1>
+				<h1><a href="http://ec2-15-165-154-33.ap-northeast-2.compute.amazonaws.com/" class="no_anchor_style">To do list</a></h1>
 			</header>
 			<div id="container">
 				<div class="to-do-list_wrap">
@@ -60,6 +60,9 @@
 				</li>
 				<li id="hidden-completed-task_menu">
 					<button onclick="onClickHiddenCompletedTask()" class="btm_menu_btn"><i id="hidden-completed-task_icon" class="fas fa-check-circle"></i><span>완료표시</span></button>
+				</li>
+				<li>
+					<button onclick="onClickAllDelCompletedTask()" class="btm_menu_btn"><i class="fas fa-eraser"></i><span>완료제거</span></button>
 				</li>
 				<li>
 					<button onclick="onClickFilter()" class="btm_menu_btn"><i class="fas fa-filter"></i><span>필터</span></button>
