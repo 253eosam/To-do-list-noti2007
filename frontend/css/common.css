@@ -18,12 +18,19 @@ header {
 	left: 0;
 	right: 0;
 	height: 40px;
-	font-size: 20px;
+	font-size: 30px;
 	text-align: center;
-	box-shadow: 0 4px 3px #5f56f0;
+}
+header h1 {
+	height: inherit;
+	font-size: inherit;
+	color: #eee;
 }
 header a {
-	text-shadow: 3px 3px 1px #ddd;
+	display: inline-block;
+	height: inherit;
+	padding: 0 10px;
+	text-shadow: 3px 3px 1px #000;
 }
 #container {
 	height: 100%;
@@ -71,7 +78,7 @@ footer {
 
 .no_anchor_style {
 	text-decoration: none;
-	color: #000;
+	color: inherit;
 }
 
 .none {
