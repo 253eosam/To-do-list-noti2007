@@ -34,12 +34,13 @@ Make sure you have installed all of the following prerequisites on your developm
 -   Spring v5.3.2
 -   Spring Boot v2.4.1
 -   Apache Tomcat v9.0.41 (Embedded)
--   Mysql 8.0.22
--   jdk 1.8.0_261
+-   **Mysql 8.0.22**
+-   **jdk 1.8.0_261**
 -   Hibernate ORM core v5.4.25.Final
 -   spring boot starter data-jpa 2.4.1
 -   HikariCP 3.4.5
 -   springfox swagger2 2.9.2
+-   **maven 3.2 이상**
 
 <br>
 
@@ -47,7 +48,7 @@ Make sure you have installed all of the following prerequisites on your developm
 
 ### Docker 설치 후 docker-compose 실행
 
-```
+```bash
     cd ./to-do-list-noti2007
     docker-compose up
 ```
@@ -56,19 +57,34 @@ docker container가 정상적으로 실행되면 로컬에 DB환경 구축 완�
 
 ### spring server 실행
 
-```
-    run ./backend/TodoappApplication.class
+```bash
+    cd backend
+    mvn clean package
+    java -jar todoapp-0.0.1-SNAPSHOT.jar
+    # nohup java -jar todoapp-0.0.1-SNAPSHOT.jar > log.out
 ```
 
 ### Front는 아래 경로로 들어가 브라우저를 통해 열어서 실행
 
-```
-    cd ./to-do-list-noti2007/frontend/index.html
+```bash
+    cd ./to-do-list-noti2007/frontend
+    # index.html 을 실행
 ```
 
-### swagger
+## Deploy
 
-[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+```bash
+ssh to-do-noti2007 # require key
+
+git clone https://github.com/DDD05/To-do-list-noti2007.git
+
+cd To-do-noti2007
+docker-compose up -d
+
+cd backend
+mvn clean package
+nohup java -jar ./target/todoapp-0.0.1-SNAPSHOT.jar > log.out
+```
 
 <br>
 
