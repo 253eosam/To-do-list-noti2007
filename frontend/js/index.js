@@ -69,7 +69,7 @@ const loadTaskByUserName = async () => {
 			task.id
 		}" class="${task.completed ? "fas" : "far"} fa-check-square"></label><span class="item-text" onclick="onClickTaskDetail(event)"> ${
 			task.content
-		} </span><button onclick="onClickTaskDel(event)" class="none del_btn">삭제</button>`;
+		} </span><button onclick="onClickTaskDel(event)" class="del_btn"><i class="fas fa-trash-alt"></i></button>`;
 		toDoListEl.appendChild(liEl);
 	});
 	registerFocus();
@@ -83,14 +83,14 @@ const onClickChangeNick = async () => {
 };
 const onClickFilter = async () => {
 	const newFiltering = prompt('필터 조건 입력하세요.', pageData.filtering);
-	pageData.filtering = newFiltering;
+	pageData.filtering = newFiltering || '';
 	loadTaskByUserName();
 };
 const registerFocus = () => {
 	document.getElementById('register-todo').focus();
 };
 const onClickTaskDel = async event => {
-	await delTask(event.target.offsetParent.dataset.id);
+	await delTask(event.target.offsetParent.offsetParent.dataset.id);
 	loadTaskByUserName();
 };
 const onClickHiddenCompletedTask = () => {
@@ -101,6 +101,14 @@ const onClickHiddenCompletedTask = () => {
 const onClickTopButton = () => {
 	document.getElementById('to-do-list').scrollTop = 0;
 };
+const onClickAllDelCompletedTask = async () => {
+	const toDoItems = document.getElementsByClassName('to-do-item')
+	for(let item of toDoItems) {
+		if(item.firstChild.checked)
+			await delTask(item.dataset.id);
+	}
+	loadTaskByUserName();
+}
 (async function init() {
 	console.log('📣  Access success..!!');
 	if (getLocalStoage('user')) User.instance = JSON.parse(getLocalStoage('user'));

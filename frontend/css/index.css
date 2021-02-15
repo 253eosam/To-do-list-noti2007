@@ -83,15 +83,11 @@
 .del_btn {
 	position: absolute;
 	display: inline-block;
-	top: 1px;
+	top: 4px;
 	right: 5px;
 	width: 13px;
 	height: 17px;
 	background: #fff;
+	opacity: .6;
 	border: 0;
-	font-size: 0;
-}
-.del_btn::before {
-	font-size: 15px;
-	content: '✖️';
 }
