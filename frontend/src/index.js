@@ -53,7 +53,7 @@ const elementInit = (el, isClear = false) => {
 	if (isClear) el.innerHTML = '';
 	return el;
 };
-const loadTaskByUserName = async () => {
+const loadTaskByUserName = async (isAutoFocus = true) => {
 	const toDoListEl = elementInit(document.getElementById('to-do-list'), true);
 	const tasks = await fetchFilterTask(User.getInstance().name, {
 		inCompleted: !pageData.showCompletedTask,
@@ -71,7 +71,7 @@ const loadTaskByUserName = async () => {
 		} </span><button onclick="onClickTaskDel(event)" class="del_btn"><i class="fas fa-trash-alt"></i></button>`;
 		toDoListEl.appendChild(liEl);
 	});
-	registerFocus();
+	isAutoFocus && registerFocus();
 };
 const onClickChangeNick = async (isFirstUse) => {
 	const newName = isFirstUse ? (()=>{
@@ -87,7 +87,7 @@ const onClickChangeNick = async (isFirstUse) => {
 const onClickFilter = async () => {
 	const newFiltering = prompt('필터 조건 입력하세요.', pageData.filtering);
 	pageData.filtering = newFiltering || '';
-	loadTaskByUserName();
+	loadTaskByUserName(false);
 };
 const registerFocus = () => {
 	document.getElementById('register-todo').focus();
@@ -99,7 +99,7 @@ const onClickTaskDel = async event => {
 const onClickHiddenCompletedTask = () => {
 	pageData.showCompletedTask = !pageData.showCompletedTask;
 	document.getElementById('hidden-completed-task_icon').className = pageData.showCompletedTask ? 'fas fa-check-circle' : 'far fa-check-circle';
-	loadTaskByUserName();
+	loadTaskByUserName(false);
 };
 const onClickTopButton = () => {
 	document.getElementById('to-do-list').scrollTop = 0;
@@ -110,7 +110,7 @@ const onClickAllDelCompletedTask = async () => {
 		if(item.firstChild.checked)
 			await delTask(item.dataset.id);
 	}
-	loadTaskByUserName();
+	loadTaskByUserName(false);
 }
 (async function init() {
 	console.log('📣  Access success..!!');
