@@ -8,7 +8,6 @@ const pageData = {
 const getLocalStoage = key => localStorage.getItem(key);
 const setLocalStoage = (key, value) => localStorage.setItem(key, value);
 class User {
-	static instance = null;
 	constructor() {
 		this.id = 0;
 		this.name = '';
@@ -74,8 +73,12 @@ const loadTaskByUserName = async () => {
 	});
 	registerFocus();
 };
-const onClickChangeNick = async () => {
-	const newName = prompt('변경할 닉네임 입력하세요.', User.getInstance().name);
+const onClickChangeNick = async (isFirstUse) => {
+	const newName = isFirstUse ? (()=>{
+		let tmpNick = ''
+		while(!tmpNick) tmpNick = prompt('안녕하세요😄\n닉네임을 정해주세요.')
+		return tmpNick
+	})() : prompt('변경할 닉네임 입력하세요.', User.getInstance().name);
 	if (!newName) return;
 	User.instance = await fetchUser(newName);
 	setLocalStoage('user', JSON.stringify(User.getInstance()));
@@ -112,7 +115,7 @@ const onClickAllDelCompletedTask = async () => {
 (async function init() {
 	console.log('📣  Access success..!!');
 	if (getLocalStoage('user')) User.instance = JSON.parse(getLocalStoage('user'));
-	else await onClickChangeNick();
+	else await onClickChangeNick(true);
 	console.log(`login success : `, User.getInstance());
 	User.getInstance().id && (await loadTaskByUserName());
 })();

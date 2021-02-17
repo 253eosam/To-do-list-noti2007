@@ -82,7 +82,7 @@ footer {
 }
 
 .none {
-	display: inline-block;
+	visibility: hidden;
 	width: 0;
 	height: 0;
 	text-indent: -999em;
