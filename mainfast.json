@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "name": "투 두 노티",
+    "version": "1.0.1",
+
+    "description": "투 두 리스트 형식에서 작업공간를 공유할 수 있다. 간단하게 팀작업을 할 경우나 서로 해야할 일을 공유할 상황에서 간편하게 사용할 수 있다.",
+    "icons": {},
+    "default_locale": "ko",
+
+    "sidebar_action": {
+        "default_page": "frontend/index.html",
+        "default_icon": {              
+            "16": "frontend/assets/favicon.ico/favicon-16x16.png"
+        },
+
+        "default_title": "투두리스트 사이드바 앱",
+        "use_navigation_bar": false
+    }
+}
