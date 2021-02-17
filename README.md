@@ -92,6 +92,9 @@ nohup java -jar ./target/todoapp-0.0.1-SNAPSHOT.jar > log.out
 
 ![메인 화면](./frontend/assets/feature-guide.gif)
 
+### v1.0.1 
+<img src="./frontend/assets/v1.0.1.jpeg" alt="v1.0.1" height="700">
+
 <br>
 
 ## 기능 정리

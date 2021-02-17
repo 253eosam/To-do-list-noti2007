@@ -15,7 +15,6 @@
 	border: 3px solid rgba(88, 85, 241, 0.25);
 	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 50px;
-	height: 20px;
 	position: relative;
 	width: 96%;
 	padding: 0 2% 0 0;
@@ -28,16 +27,13 @@
 	text-overflow: ellipsis;
 	width: calc(100% - 34px);
 	user-select: none;
-	line-height: 1.5em;
+	line-height: 150%;
 	font-size: 0.9em;
 	padding: 0 2px;
+	margin: 1.5px 0 0 0;
 }
-.to-do-list > li input[type='checkbox'] {
-	display: inline-block;
-	box-sizing: border-box;
-	width: 12px;
-	margin: 0 5px;
-	height: 100%;
+.to-do-list > li label{
+	padding: 5px 5px 5px 9px;
 	vertical-align: top;
 }
 
@@ -87,15 +83,11 @@
 .del_btn {
 	position: absolute;
 	display: inline-block;
-	top: 1px;
+	top: 4px;
 	right: 5px;
 	width: 13px;
 	height: 17px;
 	background: #fff;
+	opacity: .6;
 	border: 0;
-	font-size: 0;
-}
-.del_btn::before {
-	font-size: 15px;
-	content: '✖️';
 }
