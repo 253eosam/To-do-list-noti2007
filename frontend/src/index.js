@@ -1,5 +1,8 @@
 'use strict';
 
+import { fetchUser, fetchTask, updateTaskStatus, postTask, delTask, updateTask, fetchFilterTask } from './api'
+
+
 const pageData = {
 	showCompletedTask: true,
 	filtering: '',
@@ -22,7 +25,6 @@ class User {
 	}
 }
 
-// events
 const onClickTaskDetail = event => {
 	const isActive = event.target.offsetParent.className.includes('active');
 	event.target.offsetParent.className = isActive ? 'to-do-item' : 'to-do-item to-do-item-active';
@@ -64,7 +66,7 @@ const loadTaskByUserName = async (isAutoFocus = true) => {
 		const liEl = document.createElement('li');
 		liEl.className = 'to-do-item';
 		liEl.dataset.id = task.id;
-		liEl.innerHTML = `<input class="none" onclick="onClickCheckBox(event)" type="checkbox" ${task.completed ? 'checked' : ''} id="todo-chk-${task.id}" /><label for="todo-chk-${
+		liEl.innerHTML = `<input class="none todo__chk" type="checkbox" ${task.completed ? 'checked' : ''} id="todo-chk-${task.id}" /><label for="todo-chk-${
 			task.id
 		}" class="${task.completed ? "fas" : "far"} fa-check-square"></label><span class="item-text" onclick="onClickTaskDetail(event)"> ${
 			task.content
@@ -73,6 +75,15 @@ const loadTaskByUserName = async (isAutoFocus = true) => {
 	});
 	isAutoFocus && registerFocus();
 };
+
+const registerFocus = () => {
+	document.getElementById('register-todo').focus();
+};
+const onClickTaskDel = async event => {
+	await delTask(event.target.offsetParent.offsetParent.dataset.id);
+	loadTaskByUserName();
+};
+
 const onClickChangeNick = async (isFirstUse) => {
 	const newName = isFirstUse ? (()=>{
 		let tmpNick = ''
@@ -84,25 +95,10 @@ const onClickChangeNick = async (isFirstUse) => {
 	setLocalStoage('user', JSON.stringify(User.getInstance()));
 	await loadTaskByUserName();
 };
-const onClickFilter = async () => {
-	const newFiltering = prompt('필터 조건 입력하세요.', pageData.filtering);
-	pageData.filtering = newFiltering || '';
-	loadTaskByUserName(false);
-};
-const registerFocus = () => {
-	document.getElementById('register-todo').focus();
-};
-const onClickTaskDel = async event => {
-	await delTask(event.target.offsetParent.offsetParent.dataset.id);
-	loadTaskByUserName();
-};
 const onClickHiddenCompletedTask = () => {
 	pageData.showCompletedTask = !pageData.showCompletedTask;
 	document.getElementById('hidden-completed-task_icon').className = pageData.showCompletedTask ? 'fas fa-check-circle' : 'far fa-check-circle';
 	loadTaskByUserName(false);
-};
-const onClickTopButton = () => {
-	document.getElementById('to-do-list').scrollTop = 0;
 };
 const onClickAllDelCompletedTask = async () => {
 	const toDoItems = document.getElementsByClassName('to-do-item')
@@ -112,6 +108,28 @@ const onClickAllDelCompletedTask = async () => {
 	}
 	loadTaskByUserName(false);
 }
+const onClickFilter = async () => {
+	const newFiltering = prompt('필터 조건 입력하세요.', pageData.filtering);
+	pageData.filtering = newFiltering || '';
+	loadTaskByUserName(false);
+};
+const onClickTopButton = () => {
+	document.getElementById('to-do-list').scrollTop = 0;
+};
+
+document.addEventListener('click', event => {
+	console.log(~event.target.classList.value)
+	if (event.target && event.target.classList.value.includes('todo-chk')) onClickCheckBox()
+})
+document.getElementById('register-todo').addEventListener('keydown', onEnterCheck)
+document.getElementById('todo--regi__btn').addEventListener('click', onClickAddTask)
+document.getElementById('menu--chage-nick__btn').addEventListener('click', onClickChangeNick)
+document.getElementById('menu--hide-cpt__btn').addEventListener('click', onClickHiddenCompletedTask)
+document.getElementById('menu--all-cpt-del__btn').addEventListener('click', onClickAllDelCompletedTask)
+document.getElementById('menu--filter__btn').addEventListener('click', onClickFilter)
+document.getElementById('menu--top__btn').addEventListener('click', onClickTopButton);
+
+
 (async function init() {
 	console.log('📣  Access success..!!');
 	if (getLocalStoage('user')) User.instance = JSON.parse(getLocalStoage('user'));

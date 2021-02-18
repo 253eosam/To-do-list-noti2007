@@ -1,4 +1,8 @@
 const api = (url, method = 'GET', data) => {
+	console.log(
+		`\n%c${method} | ${url}\n`,
+		'color:#f0f000;',
+	)
 	return fetch(`http://ec2-15-165-154-33.ap-northeast-2.compute.amazonaws.com:8081${url}`, {
 		method,
 		headers: {
@@ -15,3 +19,5 @@ const postTask = (name, data) => api(`/posts/${name}`, 'POST', data);
 const delTask = id => api(`/posts/${id}`, 'DELETE');
 const updateTask = (id, data) => api(`/posts/${id}`, 'PUT', data);
 const fetchFilterTask = (name, data) => api(`/posts/condition/${name}`, 'POST', data);
+
+export { fetchUser, fetchTask, updateTaskStatus, postTask, delTask, updateTask, fetchFilterTask };
