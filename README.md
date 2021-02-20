@@ -1,9 +1,9 @@
-# 📝 To-do-list
+# 📝 To do list - noti [team & workspace]
 
-> 할일을 기록하고 수행결과를 표시할 수 있는 **To Do List** 웹 페이지입니다.
-
--   모바일 버전
--   REST API & AJAX 통신
+> 할일을 기록하고 수행결과를 표시할 수 있는 **To Do List** 웹 페이지입니다. <br>
+> - team & workspace 를 만들어서 참가자들과 할일을 공유할 수 있습니다. 
+> - `모바일 버전`을 메인으로 만들었습니다.
+> - 브라우저 익스텐션을 기획중입니다. 
 
 #### Ref [FE](./frontend/readme.md), [BE](./backend/readme.md)
 
