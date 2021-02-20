@@ -31,7 +31,6 @@ const onClickTaskDetail = event => {
 };
 const onClickCheckBox = async event => {
 	const labelClass = event.target.checked ? 'fas fa-check-square' : 'far fa-check-square'
-	console.log(event.target.checked, labelClass);
 	const labels = document.getElementsByTagName('label')
 	for(let i = 0 ; i < labels.length ; i++) {
 		if (event.target.id === labels[i].htmlFor) {
@@ -68,9 +67,9 @@ const loadTaskByUserName = async (isAutoFocus = true) => {
 		liEl.dataset.id = task.id;
 		liEl.innerHTML = `<input class="none todo__chk" type="checkbox" ${task.completed ? 'checked' : ''} id="todo-chk-${task.id}" /><label for="todo-chk-${
 			task.id
-		}" class="${task.completed ? "fas" : "far"} fa-check-square"></label><span class="item-text" onclick="onClickTaskDetail(event)"> ${
+		}" class="${task.completed ? "fas" : "far"} fa-check-square"></label><span class="item-text" > ${
 			task.content
-		} </span><button onclick="onClickTaskDel(event)" class="del_btn"><i class="fas fa-trash-alt"></i></button>`;
+		} </span><button class="del_btn fas fa-trash-alt"></button>`;
 		toDoListEl.appendChild(liEl);
 	});
 	isAutoFocus && registerFocus();
@@ -80,7 +79,8 @@ const registerFocus = () => {
 	document.getElementById('register-todo').focus();
 };
 const onClickTaskDel = async event => {
-	await delTask(event.target.offsetParent.offsetParent.dataset.id);
+	const targetId = event.target.offsetParent.dataset.id
+	await delTask(targetId);
 	loadTaskByUserName();
 };
 
@@ -118,8 +118,9 @@ const onClickTopButton = () => {
 };
 
 document.addEventListener('click', event => {
-	console.log(~event.target.classList.value)
-	if (event.target && event.target.classList.value.includes('todo-chk')) onClickCheckBox()
+	if (event.target.classList.value.includes('todo__chk')) onClickCheckBox(event)
+	else if (event.target.classList.value.includes('item-text')) onClickTaskDetail(event)
+	else if (event.target.classList.value.includes('del_btn')) onClickTaskDel(event)
 })
 document.getElementById('register-todo').addEventListener('keydown', onEnterCheck)
 document.getElementById('todo--regi__btn').addEventListener('click', onClickAddTask)
