@@ -49,8 +49,8 @@ Make sure you have installed all of the following prerequisites on your developm
 ### Docker 설치 후 docker-compose 실행
 
 ```bash
-    cd ./to-do-list-noti2007
-    docker-compose up
+cd ./to-do-list-noti2007
+docker-compose up
 ```
 
 docker container가 정상적으로 실행되면 로컬에 DB환경 구축 완료 (기존 DB와 port 충돌 조심!!)
@@ -58,17 +58,17 @@ docker container가 정상적으로 실행되면 로컬에 DB환경 구축 완�
 ### spring server 실행
 
 ```bash
-    cd backend
-    mvn clean package
-    java -jar todoapp-0.0.1-SNAPSHOT.jar
-    # nohup java -jar todoapp-0.0.1-SNAPSHOT.jar > log.out
+cd backend
+mvn clean package
+java -jar todoapp-0.0.1-SNAPSHOT.jar
+# nohup java -jar todoapp-0.0.1-SNAPSHOT.jar > log.out
 ```
 
 ### Front는 아래 경로로 들어가 브라우저를 통해 열어서 실행
 
 ```bash
-    cd ./to-do-list-noti2007/frontend
-    # index.html 을 실행
+cd ./to-do-list-noti2007/frontend
+# index.html 을 실행
 ```
 
 ## Deploy
