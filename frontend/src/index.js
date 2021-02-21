@@ -133,6 +133,7 @@ document.getElementById('menu--top__btn').addEventListener('click', onClickTopBu
 
 (async function init() {
 	console.log('📣  Access success..!!');
+	console.log(process.env.PRINT)
 	if (getLocalStoage('user')) User.instance = JSON.parse(getLocalStoage('user'));
 	else await onClickChangeNick(true);
 	console.log(`login success : `, User.getInstance());
