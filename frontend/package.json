@@ -4,8 +4,9 @@
   "description": "마크업과 순수 자바스크립트로 구현한 To do list 입니다.",
   "scripts": {
     "build": "webpack --progress --mode=production",
-    "watch": "webpack --progress --watch --env.mode local",
-    "dev": "webpack-dev-server --open --env.mode local"
+    "watch": "webpack --progress --watch --env.mode dev",
+    "dev": "webpack-dev-server --open --env.mode dev",
+    "serve": "webpack-dev-server --open --env.mode local"
   },
   "keywords": [],
   "author": "",
