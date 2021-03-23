@@ -1,16 +1,13 @@
 class App {
   $target = null;
+  $header = null;
+  $container = null;
+  $menu = null;
 
   constructor($target) {
     this.$target = $target;
-
-    this.render();
-  }
-
-  render() {
-    const h1 = document.createElement("h1");
-    h1.innerText = "Hello world ~!";
-
-    this.$target.appendChild(h1);
+    this.$header = new Header({ $target });
+    this.$container = new Container({ $target });
+    this.$menu = new BottomMenu({ $target });
   }
 }
