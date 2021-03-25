@@ -21,7 +21,10 @@
   },
   "scripts": {
     "lint": "eslint src",
-    "lint:fix": "eslint src --fix"
+    "lint:fix": "eslint src --fix",
+    "build": "webpack --progress --mode=production",
+    "watch": "webpack --progress --watch --env.mode dev",
+    "dev": "webpack-dev-server --open --env.mode dev"
   },
   "husky": {
     "hooks": {

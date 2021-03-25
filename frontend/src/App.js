@@ -1,9 +1,8 @@
-class App {
-  $target = null;
-  $header = null;
-  $container = null;
-  $menu = null;
+import { Header } from "@/components/common/Header.js";
+import { Container } from "@/components/common/Container.js";
+import { BottomMenu } from "@/components/common/BottomMenu.js";
 
+export class App {
   constructor($target) {
     this.$target = $target;
     this.$header = new Header({ $target });

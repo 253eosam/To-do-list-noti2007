@@ -1,7 +1,4 @@
-class BottomMenu {
-  $bottomMenu = null;
-  buttonData = null;
-
+export class BottomMenu {
   constructor({ $target }) {
     this.$bottomMenu = document.createElement("div");
     this.$bottomMenu.className = "btm_fix_menu";

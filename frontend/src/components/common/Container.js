@@ -1,6 +1,6 @@
-class Container {
-  $container = null;
+import { ToDoList } from "@/components/main/ToDoList.js";
 
+export class Container {
   constructor({ $target }) {
     this.$container = document.createElement("div");
     this.$container.id = "container";

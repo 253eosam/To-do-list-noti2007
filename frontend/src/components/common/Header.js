@@ -1,6 +1,4 @@
-class Header {
-  $header = null;
-
+export class Header {
   constructor({ $target }) {
     this.$header = document.createElement("header");
     const $h1 = document.createElement("h1");
