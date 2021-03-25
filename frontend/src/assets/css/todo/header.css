@@ -1,0 +1,22 @@
+#todo_wrap > #todo_header {
+  height: 22px;
+  background: #fff;
+  padding: 3px 0;
+  margin-bottom: 15px;
+}
+
+#todo_wrap > #todo_header > ul::after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+#todo_wrap > #todo_header > ul > li {
+  float: left;
+}
+
+#todo_wrap > #todo_header > ul > li > #workspace_tag {
+  border: 1px solid #000;
+  border-radius: 0;
+  background: #84bfff;
+}

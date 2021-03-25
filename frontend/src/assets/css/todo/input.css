@@ -1,0 +1,38 @@
+#todo_input_wrap {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: #fff;
+}
+
+#todo_input_wrap > input[type="text"] {
+  float: left;
+	height: 100%;
+	width: 85%;
+	box-sizing: border-box;
+	font-size: 20px;
+	padding: 0 4%;
+	border: 0;
+}
+
+#todo_input_wrap > input[type="text"]::placeholder {
+  color: #ddd;
+}
+
+#todo_input_wrap > input[type="text"]:focus {
+  outline: none;
+}
+
+#todo_input_wrap > button {
+  float: right;
+	height: 100%;
+	width: 15%;
+	box-sizing: border-box;
+	border: 5px solid #fff;
+	border-radius: 10px;
+	font-size: 15px;
+	background: #5f56f0;
+	color: #ddd;
+}

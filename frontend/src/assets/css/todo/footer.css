@@ -1,0 +1,54 @@
+#todo_footer {
+  height: 50px;
+  width: 100%;
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-shadow: 0 0 11px rgba(195, 195, 195, 0.5);
+}
+
+#todo_footer > ul {
+  width: 100%;
+  height: 100%;
+}
+
+#todo_footer > ul::after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+#todo_footer > ul > li {
+  float: left;
+  width: 25%;
+  height: 100%;
+  position: relative;
+}
+
+#todo_footer > ul > li > .footer_menu_btn{
+  height: 100%;
+  width: 100%;
+  border: 0;
+  background: #fff;
+}
+
+#todo_footer > ul > li::before{
+  display: block;
+  content: '';
+  position: absolute;
+  left: -1px;
+  bottom: 10px;
+  top: 10px;
+  border-right: 1px solid #000;
+}
+
+#todo_footer > ul > li > .footer_menu_btn > i {
+  display: block;
+}
+
+#todo_footer > ul > li > .footer_menu_btn > span{
+  display: block;
+}
