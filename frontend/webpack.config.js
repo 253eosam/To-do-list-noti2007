@@ -13,18 +13,21 @@ module.exports = (env) => {
       filename: "main.js",
       clean: true,
     },
-    // module: {
-    //   rules: [
-    //     {
-    //       test: /\.js$/,
-    //       include: [path.resolve(__dirname, "src")],
-    //       exclude: /node_modules/,
-    //       use: {
-    //         loader: "babel-loader",
-    //       },
-    //     },
-    //   ],
-    // },
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          include: [path.resolve(__dirname, "src")],
+          exclude: /node_modules/,
+          use: {
+            loader: "babel-loader",
+            options: {
+              plugins: ["@babel/plugin-proposal-class-properties"],
+            },
+          },
+        },
+      ],
+    },
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "src"),
@@ -38,7 +41,7 @@ module.exports = (env) => {
     devServer: {
       contentBase: path.resolve(__dirname),
       publicPath: "src",
-      host: "0.0.0.0", // default : 127.0.0.1
+      // host: "0.0.0.0", // default : 127.0.0.1
     },
   };
 };
