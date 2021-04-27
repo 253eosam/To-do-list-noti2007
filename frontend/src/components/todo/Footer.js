@@ -1,4 +1,4 @@
-import { Button } from "@/models/todo/Button.js";
+import { FooterButton as Button } from "@/components/common/FooterButton.js";
 
 export class Footer {
   constructor({ $target }) {

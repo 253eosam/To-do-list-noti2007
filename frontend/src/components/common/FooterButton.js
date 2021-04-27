@@ -1,4 +1,4 @@
-export class Button {
+export class FooterButton {
   constructor(className, text) {
     this.id = null;
     this.className = `fas fa-${className}`;
