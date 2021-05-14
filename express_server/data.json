@@ -1,0 +1,11 @@
+{
+  "workspaces": [
+    {
+      "id": 1,
+      "title": "New Workspace 01",
+      "users": [
+        { "id": 1, "nick": "Test User 01", "uid": "DDD05" }
+      ]
+    }
+  ]
+}
